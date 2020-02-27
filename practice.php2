@@ -1,0 +1,37 @@
+<?php
+echo 'hello php!';
+echo "\n";
+
+$name = "Tanaka";
+switch ($name) {
+case "Tanaka":
+echo "私はTanakaです";
+break;
+case "Nakata":
+echo "私はTanakaではありません";
+break;
+}
+echo "\n";
+
+$total = 0;
+echo $total;
+for ($i = 0; $i <= 10000; $i++) {
+  $total += $i;
+}
+echo $total;
+echo "\n";
+
+$fruits = array("apple","orange","banana","strawberry","grape");
+foreach($fruits as $fruit){
+echo "要素は" . $fruit;
+echo "\n";
+}
+
+$start = 1;
+$end = 101;
+for($i = $start; $i < $end; $i++){
+if($i % 5 == 0){
+    echo $i;
+    echo "\n";
+    };
+};    
