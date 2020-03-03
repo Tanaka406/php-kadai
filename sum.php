@@ -4,7 +4,7 @@ echo "\n";
 
 //課題1
 function a($max){
-return $max * 2;
+    return $max * 2;
 }
 echo a(2);
 echo "\n";
@@ -12,60 +12,72 @@ echo "\n";
 
 //課題2
 function f($a,$b){
-return $a+$b;
+    return $a+$b;
 }
-echo f(4);
+echo f(4,4);
 echo "\n";
 
 //課題3
 function b($arr){
-$a = 1;
-foreach($arr as $c){
-     $a　*= $c;
+    $a = 1;
+    foreach($arr as $c){
+       $a *= $c;
+    }
+    return $a;
 }
- return $arr;
-}
-  $arr = array[1,3,5,7,9];
+$arr = array(1,3,5,7,9);
 echo b($arr);
 echo "\n";
 
 //課題4
  function max_array($arr){
 // とりあえず配列の最初の要素を一番大きい値とする
- $max_number = $arr[0];
- foreach($arr as $a){
+    $max_number = $arr[0];
+    foreach($arr as $a){
  //どうしたらいいかわからない・・・・
+    if($a>$max_number){
+        echo "$max_number = $a";
+    }
+        
  }
 
- return $max_number;
+    return $max_number;
  }
- $array = [10,8,6,4,2];
- echo max_array(10)
- echo "\n";
+ $arr = array(10,8,6,4,2);
+ echo max_array($arr);
+ 
+
  //課題5
- strip_tags(文字列,許可するタグ);
- $string = `<a href="http://google.com">Google</a>`;
-$result = strip_tags($string);
-echo $result;
+ //strip_tags
+$text = '<p>Test paragraph.</p><!-- Comment --> <a href="#fragment">Other text</a>';
+echo strip_tags($text);
+echo "\n";
+echo strip_tags($text, '<p>');
 
-array_push($配列, "追加文字列");
-array_push($配列, $追加変数);
-$data = array("A", "B", "C");
-array_push($data, "D", "E");
-print_r($data);
+ //array_push
+$stack = array("orange", "banana");
+array_push($stack, "apple", "raspberry");
+print_r($stack);
 
-$配列 = array_merge($元の配列,$追加配列);
-$data = array("TV1" => "500", "TV2" => "1000", "RADIO1" => "800");
-$add_data = array("TV1" => "2000", "RADIO2" => "600");
-$result = array_merge($data, $add_data);
+ //array_merge
+$array1 = array("color" => "red", 2, 4);
+$array2 = array("a", "b", "color" => "green", "shape" => "trapezoid", 4);
+$result = array_merge($array1, $array2);
 print_r($result);
 
-$変数 = time();
-$now = time();
-print $now;
+//time
+$nextWeek = time() + (7 * 24 * 60 * 60);;
+                   // 7 日 * 24 時間 * 60 分 * 60 秒
+echo 'Now:       '. date('Y-m-d') ."\n";
+echo 'Next Week: '. date('Y-m-d', $nextWeek) ."\n";
 
-$変数 = date(フォーマット, UNIXタイムスタンプ);
-$timestamp = time() + (60 * 60 * 24) * 7;
-$next_week = date('Y年m月d日H時i分s秒', $timestamp);
-print $next_week;
- 
+//mktime
+echo date("M-d-Y", mktime(0, 0, 0, 1, 1, 1998));
+echo "\n";
+
+//date
+// 使用するデフォルトのタイムゾーンを指定します。PHP 5.1 以降で使用可能です。
+date_default_timezone_set('UTC');
+ // 結果は July 1, 2000 is on a Saturday となります。
+echo "July 1, 2000 is on a " . date("l", mktime(0, 0, 0, 7, 1, 2000));
+
